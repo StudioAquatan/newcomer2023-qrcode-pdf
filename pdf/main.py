@@ -4,6 +4,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.units import cm
 from reportlab.lib.pagesizes import A4
+import PyPDF2
 
 
 QR_CODE_DIR = Path(__file__).parent.parent / "qr" / "output"
@@ -62,6 +63,13 @@ def main() -> None:
 
         pdfFile.restoreState()
         pdfFile.save()
+
+    merger = PyPDF2.PdfMerger()
+    for path in OUTPUT_DIR.glob("*.pdf"):
+        merger.append(str(path))
+
+    merger.write(OUTPUT_DIR / "all.pdf")
+    merger.close()
 
 
 if __name__ == "__main__":

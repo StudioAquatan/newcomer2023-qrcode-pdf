@@ -182,6 +182,21 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "pypdf2"
+version = "3.0.1"
+description = "A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+crypto = ["PyCryptodome"]
+dev = ["black", "flit", "pip-tools", "pre-commit (<2.18.0)", "pytest-cov", "wheel"]
+docs = ["myst_parser", "sphinx", "sphinx_rtd_theme"]
+full = ["Pillow", "PyCryptodome"]
+image = ["Pillow"]
+
+[[package]]
 name = "pypng"
 version = "0.20220715.0"
 description = "Pure Python library for saving and loading PNG images"
@@ -293,7 +308,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "fd4eb24cab902d37579faa4fc1a85818c2d263ccabd330ecf201126b9ffcf631"
+content-hash = "c08fce82f6bdefa4b09882f9cfbc1a051c312356afcf5c24bfcb2892382e53fd"
 
 [metadata.files]
 black = [
@@ -547,6 +562,10 @@ pycodestyle = [
 pyflakes = [
     {file = "pyflakes-3.0.1-py2.py3-none-any.whl", hash = "sha256:ec55bf7fe21fff7f1ad2f7da62363d749e2a470500eab1b555334b67aa1ef8cf"},
     {file = "pyflakes-3.0.1.tar.gz", hash = "sha256:ec8b276a6b60bd80defed25add7e439881c19e64850afd9b346283d4165fd0fd"},
+]
+pypdf2 = [
+    {file = "PyPDF2-3.0.1.tar.gz", hash = "sha256:a74408f69ba6271f71b9352ef4ed03dc53a31aa404d29b5d31f53bfecfee1440"},
+    {file = "pypdf2-3.0.1-py3-none-any.whl", hash = "sha256:d16e4205cfee272fbdc0568b68d82be796540b1537508cef59388f839c191928"},
 ]
 pypng = [
     {file = "pypng-0.20220715.0-py3-none-any.whl", hash = "sha256:4a43e969b8f5aaafb2a415536c1a8ec7e341cd6a3f957fd5b5f32a4cfeed902c"},
