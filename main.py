@@ -1,6 +1,9 @@
 from pathlib import Path
 import qrcode
+from qrcode.image.styledpil import StyledPilImage
+from qrcode.image.styles.moduledrawers.pil import RoundedModuleDrawer
 
+LOGO_DIR = Path(__file__).parent / "logo" / "output"
 OUTPUT_DIR = Path(__file__).parent / "output"
 
 if not OUTPUT_DIR.exists():
@@ -19,7 +22,17 @@ def main() -> None:
     for token in tokens:
         orgId, orgName, visitedUrl, shortUrl = token.split(",")
         print(f"団体名: {orgName}")
-        img = qrcode.make(shortUrl)
+        qr = qrcode.QRCode(
+            error_correction=qrcode.constants.ERROR_CORRECT_H,
+        )
+        qr.add_data(shortUrl)
+        img = qr.make_image(
+            image_factory=StyledPilImage,
+            module_drawer=RoundedModuleDrawer(),
+            fill_color="black",
+            back_color="white",
+            embeded_image_path=f"logo/output/{orgId}.png",
+        )
         img.save(OUTPUT_DIR / f"{orgId}.png")
 
 
