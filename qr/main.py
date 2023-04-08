@@ -25,6 +25,7 @@ def main() -> None:
         print(f"団体名: {orgName}")
         qr = qrcode.QRCode(
             error_correction=qrcode.constants.ERROR_CORRECT_H,
+            box_size=30,
         )
         qr.add_data(shortUrl)
         img = qr.make_image(
