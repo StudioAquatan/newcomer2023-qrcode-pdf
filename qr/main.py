@@ -3,7 +3,8 @@ import qrcode
 from qrcode.image.styledpil import StyledPilImage
 from qrcode.image.styles.moduledrawers.pil import RoundedModuleDrawer
 
-LOGO_DIR = Path(__file__).parent / "logo" / "output"
+LOGO_DIR = Path(__file__).parent.parent / "logo" / "output"
+TOKEN_PATH = Path(__file__).parent.parent / "tokens.csv"
 OUTPUT_DIR = Path(__file__).parent / "output"
 
 if not OUTPUT_DIR.exists():
@@ -12,7 +13,7 @@ if not OUTPUT_DIR.exists():
 
 def main() -> None:
     tokens = []
-    with open("tokens.csv", "r") as f:
+    with open(TOKEN_PATH, "r") as f:
         for line in f:
             tokens.append(line.strip(","))
 
@@ -31,7 +32,7 @@ def main() -> None:
             module_drawer=RoundedModuleDrawer(),
             fill_color="black",
             back_color="white",
-            embeded_image_path=f"logo/output/{orgId}.png",
+            embeded_image_path=LOGO_DIR / f"{orgId}.png",
         )
         img.save(OUTPUT_DIR / f"{orgId}.png")
 
