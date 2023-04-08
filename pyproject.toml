@@ -11,6 +11,7 @@ python = "^3.10"
 qrcode = "^7.4.2"
 pillow = "^9.5.0"
 requests = "^2.28.2"
+reportlab = "^3.6.12"
 
 
 [tool.poetry.group.dev.dependencies]
