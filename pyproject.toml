@@ -1,0 +1,11 @@
+[tool.poetry]
+name = "qrcodepdf"
+version = "0.1.0"
+description = ""
+authors = ["Hiroya-W <hyuyukun@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
