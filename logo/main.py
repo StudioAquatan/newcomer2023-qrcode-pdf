@@ -59,7 +59,6 @@ def main() -> None:
             "RGBA", (OUTPUT_IMG_SIZE, OUTPUT_IMG_SIZE), (255, 255, 255, 255)
         )
         thumbnail = Image.alpha_composite(thumbnail, logo_background)
-        thumbnail.save(OUTPUT_DIR / f"{id}.png")
 
         # 角を丸くするためのマスクを作成
         mask = Image.new("L", (OUTPUT_IMG_SIZE, OUTPUT_IMG_SIZE), 0)
