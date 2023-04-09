@@ -37,7 +37,7 @@ def main() -> None:
         pdfFile.saveState()
 
         pdfFile.setAuthor("StudioAquatan")
-        pdfFile.setTitle("ここに団体名")
+        pdfFile.setTitle(f"{orgName}のスタンプラリー用QRコード")
 
         # A4
         pdfFile.setPageSize(A4)
