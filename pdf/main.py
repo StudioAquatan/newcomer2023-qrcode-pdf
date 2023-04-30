@@ -65,11 +65,17 @@ def main() -> None:
         pdfFile.save()
 
     merger = PyPDF2.PdfMerger()
-    for path in OUTPUT_DIR.glob("*.pdf"):
-        merger.append(str(path))
+    merger1 = PyPDF2.PdfMerger()
+    for index, path in enumerate(OUTPUT_DIR.glob("*.pdf")):
+        if index > 49:
+            merger1.append(str(path))
+        else:
+            merger.append(str(path))
 
-    merger.write(OUTPUT_DIR / "all.pdf")
+    merger.write(OUTPUT_DIR / "all_50.pdf")
+    merger1.write(OUTPUT_DIR / "all_50a.pdf")
     merger.close()
+    merger1.close()
 
 
 if __name__ == "__main__":
