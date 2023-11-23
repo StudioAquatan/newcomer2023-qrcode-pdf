@@ -28,7 +28,7 @@ poetry run python logo/main.py
 poetry run python pdf/main.py
 ```
 
-### 3. PDFを生成する
+## 3. PDFを生成する
 
 QRコードと団体名を配置したPDFを生成する。
 
